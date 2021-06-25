@@ -562,3 +562,10 @@ body {
 .add-button-wrapper {
   z-index: 9999;
 }
+
+
+/* Inline #2 | https://terminal133.herokuapp.com/ */
+
+.inner-header, .main-wrapper {
+  position: relative;
+}
