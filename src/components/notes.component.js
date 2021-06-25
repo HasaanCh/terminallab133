@@ -88,17 +88,6 @@ export default class NoteList extends Component
                {this.notesList()}
             </div>
 
-            {/* <OutsideClickHandler onOutsideClick={() => { this.hideModal() }} >
-
-                <div className={"noteModal "+this.state.noteclass}>
-                    <div className="noteclose">
-                        <button className="close-button" onClick={this.hideModal}>X</button>
-                    </div>
-                        <textarea className="notes-input-field" onChange={this.myChangeHandler} type="text"  value={this.state.notedata} />
-                       <img className="delete-button" onClick={(param)=>this.deleteNote(this.state.noteid)} src={deleteimage}/>
-                    
-                </div>
-            </OutsideClickHandler> */}
            
            
            

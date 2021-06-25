@@ -10,11 +10,13 @@ export default class Login extends Component
     {
         super(props);
 
-       
+       this.handleSubmit=this. handleSubmit.bind(this)
 
         this.state={
             email:"",
             password:"",
+            loginshow:"hidden",
+            logintext:""
         };
     }
 
@@ -47,7 +49,13 @@ export default class Login extends Component
             var win = window.open('/',"_self");
             win.focus();
             // toast.success(`Hey ${res.data.user.name}, Welcome back!`);
-        }).catch(error=>console.log(error))
+        }).catch(()=>
+          {
+            this.setState({loginshow:"shown"});
+            this.setState({logintext:"Wrong password or email"});
+          }
+         
+        )
     }
 
 
@@ -80,7 +88,7 @@ export default class Login extends Component
                   type='submit'            >
                   <span className='ml-3'>Sign In</span>
                 </button>
-                
+                <div className={this.state.loginshow}>{this.state.logintext}</div>
               </form>
         </div>
         )
