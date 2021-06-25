@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import { authenticate, isAuth } from '../helpers/auth';
 import axios from 'axios'
-// import { ToastContainer, toast } from 'react-toastify';
 import { Link, Redirect } from 'react-router-dom';
 
 export default class Login extends Component
@@ -57,9 +56,8 @@ export default class Login extends Component
     {
         return(
             
-        <div>
+        <div className="form-wrapper">
             {isAuth() ? <Redirect to='/' /> : null}
-            {/* <ToastContainer /> */}
             <form
                 className='mx-auto max-w-xs relative '
                 onSubmit={this.handleSubmit}

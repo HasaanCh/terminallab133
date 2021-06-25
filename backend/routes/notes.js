@@ -7,20 +7,21 @@ let Note=require('../models/notes.model.js');
 // });
 
 
-router.route('/email/:email').get((req,res)=>
+router.route('/').get((req,res)=>
 {
-    Note.find({email:req.params.email}).then(notes =>res.json(notes)).catch(err=>res.status(400).json('Error: '+err));
+    Note.find().then(notes =>res.json(notes)).catch(err=>res.status(400).json('Error: '+err));
 });
 
 
 router.route('/add').post((req,res)=>
 {
-    const notedata=req.body.notedata;
-    const username=req.body.username;
-    const email=req.body.email;
-    const newNote= new Note({notedata,username,email});
-   
+    const city=req.body.city;
+    const date=req.body.date;
+    const teama=req.body.teama;
+    const teamb=req.body.teamb;
     
+    const newNote= new Note({city,date,teama,teamb});
+   
     newNote.save().then(()=>res.json(newNote))
     .catch(err=>res.status(400).json('Error :'+err));
 

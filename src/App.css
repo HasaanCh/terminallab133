@@ -90,7 +90,7 @@
   height: 100%
 }
 
-a,h1,h2,h3,h4,p {
+a,h1,h2,h3,h4,p,div,strong {
   font-family: open sans
 }
 
@@ -441,4 +441,109 @@ body {
 .notes-wrapper.btn.btn-1 {
   margin: 0px;
   border-radius: 20px;
+}
+
+/* Inline #3 | http://localhost:3000/ */
+
+.notes-list {
+  flex-direction: row;
+}
+
+.hellothere {
+  width: 100% !important;
+  padding: 30px 20px;
+  color: white;
+}
+
+/* Inline #2 | http://localhost:3000/ */
+
+.glow-on-hover {
+  text-decoration: none;
+}
+
+/* Inline #3 | http://localhost:3000/ */
+
+.profile.item-header button {
+  background-color: transparent;
+  color: white;
+  border: 0px;
+  font-family: open sans;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+/* Inline #2 | http://localhost:3000/ */
+
+.items .item-header a {
+  /* font-weight: 600; */
+  font-weight: 400;
+}
+
+
+/* Inline #3 | http://localhost:3000/login */
+
+.form-wrapper {
+  display: flex;
+  min-height: 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-wrapper form {
+  display: flex;
+}
+
+.form-wrapper form input {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 30px;
+  padding: 10px;
+  font-family: open sans;
+  border-color: #614a19;
+  border-radius: 15px;
+}
+
+.form-wrapper form {
+  flex-wrap: wrap;
+}
+
+.form-wrapper form button {
+  background-color: #614a19;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid #614a19;
+  width: 100%;
+  cursor: pointer;
+}
+
+
+/* Inline #3 | http://localhost:3000/addmatch */
+
+.form-wrapper form label {
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: open sans;
+}
+
+.form-wrapper form select {
+  margin-bottom: 10px;
+  font-family: open sans;
+  background-color: #614a19;
+  color: white;
+  border: 1px solid #614a19;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.form-wrapper form option {
+  font-family: open sans;
+  color: white;
+}
+
+
+/* Inline #2 | http://localhost:3000/addmatch */
+
+.form-wrapper {
+  padding: 50px 0px;
 }

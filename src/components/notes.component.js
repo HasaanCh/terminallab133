@@ -1,8 +1,5 @@
 import React,{Component} from 'react';
 import axios from 'axios';
-import OutsideClickHandler from "./outsideclickhandler.component"
-import deleteimage from "./delete.png"
-import addimage from "./add.svg"
 import { Link, Redirect } from 'react-router-dom';
 import { authenticate, isAuth,getCookie } from '../helpers/auth';
 
@@ -15,119 +12,107 @@ export default class NoteList extends Component
     {
         super(props);
 
-        this.deleteNote=this.deleteNote.bind(this);
+        // this.deleteNote=this.deleteNote.bind(this);
 
-        this.state={notes:[],
-            show:false,
-            notedata:"Empty",
-            noteclass:"hidden",
-            noteuser:"",
-            noteid:"",
-            newdata:"",
-            isblur:"",
-            isnew:"false",
-            email:""
+        this.state={
+            match:[]
         };
     }
 
 
 
-    showModal(id){
-            var dataa=this.state.notes.filter(item=>
-            {
-                return item._id===id;
-            })
-            console.log("---------------")
-            console.log(dataa);
+    // showModal(id){
+    //         var dataa=this.state.notes.filter(item=>
+    //         {
+    //             return item._id===id;
+    //         })
+    //         console.log("---------------")
+    //         console.log(dataa);
             
-            this.setState({notedata:dataa[0].notedata})
-            this.setState({noteid:dataa[0]._id})
-            this.setState({noteuser:dataa[0].username})
-            this.setState({noteclass:"shown"});
-            this.setState({isblur:"blurred"})
-        }
+    //         this.setState({notedata:dataa[0].notedata})
+    //         this.setState({noteid:dataa[0]._id})
+    //         this.setState({noteuser:dataa[0].username})
+    //         this.setState({noteclass:"shown"});
+    //         this.setState({isblur:"blurred"})
+    //     }
  
     
-    hideModal = () => {
-        this.setState({noteclass:"hidden"});
-        // this.componentDidMount();
-        this.setState({isblur:""})
-    };
+    // hideModal = () => {
+    //     this.setState({noteclass:"hidden"});
+    //     // this.componentDidMount();
+    //     this.setState({isblur:""})
+    // };
 
 
     componentDidMount() {
-        const aloo=isAuth();
-        // console.log(aloo);
-        if(aloo)
-        {
-            // console.log("hanji hanji")
-            this.setState({email:aloo.email});
-            this.setState({noteuser:aloo.name});
-            axios.get('http://127.0.0.1:5000/notes/email/'+aloo.email).then(response =>{
-            this.setState({notes:response.data});
+            axios.get('http://127.0.0.1:5000/notes/').then(response =>{
+            this.setState({match:response.data});
+            console.log(response.data)
         }).catch((error)=>console.log(error));
-        }
-        
     }
 
-    addnew()
-    {
+    // addnew()
+    // {
 
-        var newnote=axios.post('http://127.0.0.1:5000/notes/add/', {
-                        "username": this.state.noteuser,
-                        "notedata": "Hello I am new",
-                        "email":this.state.email
-                        }).then(function(userID) {
-                            return userID;
-                        });
-                        // console.log(newnote);
+    //     var newnote=axios.post('http://127.0.0.1:5000/notes/add/', {
+    //                     "username": this.state.noteuser,
+    //                     "notedata": "Hello I am new",
+    //                     "email":this.state.email
+    //                     }).then(function(userID) {
+    //                         return userID;
+    //                     });
         
-                        const printAddress = () => {
-                            newnote.then(async a => {
-                            console.log(a.data._id);
-                            console.log(this.state.email);
-                            // axios.get('http://127.0.0.1:5000/notes/email/'+this.state.email).then(response =>{
-                            //     console.log(response);
-                            //     this.setState({notes:response.data[0]});
-                            // });
-                            axios.get('http://127.0.0.1:5000/notes/email/'+this.state.email).then(response =>{
-                                this.setState({notes:response.data}),this.showModal(a.data._id);}).catch((error)=>console.log(error));
-                            });
+    //                     const printAddress = () => {
+    //                         newnote.then(async a => {
+    //                         console.log(a.data._id);
+    //                         console.log(this.state.email);
+
+    //                         axios.get('http://127.0.0.1:5000/notes/email/'+this.state.email).then(response =>{
+    //                             this.setState({notes:response.data}),this.showModal(a.data._id);}).catch((error)=>console.log(error));
+    //                         });
                        
-                        }
+    //                     }
                         
-                        printAddress();
+    //                     printAddress();
 
-    }
+    // }
 
 
-    deleteNote(id)
-    {
-        this.hideModal();
-        axios.delete('http://127.0.0.1:5000/notes/'+id).then(res=> console.log(res.data));
-        this.setState({
-            notes:this.state.notes.filter(el=>el._id !== id)
-        })
-    }
+    // deleteNote(id)
+    // {
+    //     this.hideModal();
+    //     axios.delete('http://127.0.0.1:5000/notes/'+id).then(res=> console.log(res.data));
+    //     this.setState({
+    //         notes:this.state.notes.filter(el=>el._id !== id)
+    //     })
+    // }
 
     notesList()
     {
-        return this.state.notes.map(currentnote =>{
+        return this.state.match.map(currentnote =>{
             return (
             <div className="hellothere">
-                <a className="notes-wrapper btn btn-1" href="#" onClick={(param) => this.showModal(currentnote._id)}>
-                <svg>
-                <rect x="0" y="0" fill="none" width="100%" height="100%"/>
-                 </svg>
-           
-                    <p className="notes-data">
-                    {currentnote.notedata}
-                    </p>
-              
-                </a>
-                
-        
-            </div>
+               <div className="singlematch">
+
+                   <div className="singlerecord">
+                   <strong>City: </strong> {currentnote.city}<br/>
+                   </div>
+
+                   <div className="singlerecord">
+                   <strong>Team A: </strong>{currentnote.teama}<br/>
+                   </div>
+
+                   <div className="singlerecord">
+                   <strong>Team B: </strong>{currentnote.teamb}<br/>
+                   </div>
+
+                   <div className="singlerecord">
+                   <strong>Date: </strong>{currentnote.date}
+                   </div>
+                </div>
+                </div>
+
+            
             )
         })
     }
@@ -141,7 +126,7 @@ export default class NoteList extends Component
      }
 
 
-    
+    //  <Redirect to='/login' />
 
 
 
@@ -150,13 +135,17 @@ export default class NoteList extends Component
         return(
 
        <div className="main-wrapper" >
-             {isAuth() ? null: <Redirect to='/login' /> }
-           <h3>Notes List</h3>
-           <div className={"notes-list "+ this.state.isblur}>
+             {isAuth() ?  <div className="add-button-wrapper">
+                    <Link to="/addmatch" className="glow-on-hover">+</Link>
+            </div>: null }
+             
+             
+           <h3>Match List</h3>
+           <div className="notes-list">
                {this.notesList()}
             </div>
 
-            <OutsideClickHandler onOutsideClick={() => { this.hideModal() }} >
+            {/* <OutsideClickHandler onOutsideClick={() => { this.hideModal() }} >
 
                 <div className={"noteModal "+this.state.noteclass}>
                     <div className="noteclose">
@@ -166,12 +155,9 @@ export default class NoteList extends Component
                        <img className="delete-button" onClick={(param)=>this.deleteNote(this.state.noteid)} src={deleteimage}/>
                     
                 </div>
-            </OutsideClickHandler>
+            </OutsideClickHandler> */}
            
-            <div className="add-button-wrapper">
-                <p className="glow-on-hover" type="button"  onClick={(param) => this.addnew()}>+</p>
-                {/* <img src={addimage} onClick={(param) => this.addnew()}/> */}
-            </div>
+           
            
        </div>
               

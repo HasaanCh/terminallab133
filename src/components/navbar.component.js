@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {Link,Redirect} from 'react-router-dom';
 import { signout } from '../helpers/auth';
+import { authenticate, isAuth,getCookie } from '../helpers/auth';
 
 
 
@@ -13,24 +14,22 @@ export default class Navbar extends Component
         <header className="main-header">
             <div className="inner-header">
             <div className="left-logo">
-                    <h3 className="typing-demo">
-                        <Link to="/" className="logo-link">Noter </Link>
+                    <h3>
+                        <Link to="/" className="logo-link">PSL APP</Link>
                         </h3>
                 </div>
             
                 <div className="right-header">
                     <div className="items">
-                            <div className="profile item-header">
-                                <Link to="/" className="notes-link">Notes</Link>
-                    </div>
-                    <div className="profile item-header">
-                                <Link to="/register" className="notes-link">Register</Link>
-                    </div>
+                    {isAuth() ? null:<div className="profile item-header">
+                                <Link to="/login" className="notes-link">Login</Link>
+                    </div> }
+                    
                     <div className="profile item-header">
                             <button
                         onClick={() => {
                             signout(() => {
-                                var win = window.open('/login',"_self");
+                                var win = window.open('/',"_self");
                                 win.focus();
                             });
                         }}

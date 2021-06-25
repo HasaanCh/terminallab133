@@ -4,14 +4,15 @@ const Schema=mongoose.Schema;
 
 
 const notesScehma=new Schema({
-  notedata:{type:String},
-  username:{type:String},
-  email:{type:String}
+  city:{type:String},
+  date:{type:String},
+  teama:{type:String},
+  teamb:{type:String},
 },
 {
     timestamps:true
 });
 
-const Notes = mongoose.model('Notes',notesScehma);
+const Notes = mongoose.model('MatchData',notesScehma);
 
 module.exports=Notes;
