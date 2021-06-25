@@ -20,9 +20,5 @@ function App() {
 </Router>
   );
 }
-// app.use(express.static(path.join(__dirname, "backend/build"))); // Anything that doesn't match the above, send back index.html
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname + "/backend/build/index.html"));
-// });
 
 export default App;
