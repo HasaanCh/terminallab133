@@ -143,7 +143,7 @@ render()
 
                 <button
                   type='submit'            >
-                  <span className='ml-3'>Sign In</span>
+                  <span className='ml-3'>Add Match</span>
                 </button>
                 <div className={"notification "+this.state.shownotification}>
                   {this.state.notenotification}
