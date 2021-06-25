@@ -1,20 +1,8 @@
 For Starting Please Sir, Follow These Steps
 
-For FrontEnd 
+Heroku Link
 
-npm ci
-
-npm start
-
-For Backend Please Open a new terminal and exectue these commands
-
-
-cd backend
-
-npm ci
-
-npm start
-
+https://terminal133.herokuapp.com/
 
 logins for testing are:
 hasaan.ch.13@gmail.com
