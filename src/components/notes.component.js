@@ -21,27 +21,6 @@ export default class NoteList extends Component
 
 
 
-    // showModal(id){
-    //         var dataa=this.state.notes.filter(item=>
-    //         {
-    //             return item._id===id;
-    //         })
-    //         console.log("---------------")
-    //         console.log(dataa);
-            
-    //         this.setState({notedata:dataa[0].notedata})
-    //         this.setState({noteid:dataa[0]._id})
-    //         this.setState({noteuser:dataa[0].username})
-    //         this.setState({noteclass:"shown"});
-    //         this.setState({isblur:"blurred"})
-    //     }
- 
-    
-    // hideModal = () => {
-    //     this.setState({noteclass:"hidden"});
-    //     // this.componentDidMount();
-    //     this.setState({isblur:""})
-    // };
 
 
     componentDidMount() {
@@ -51,41 +30,6 @@ export default class NoteList extends Component
         }).catch((error)=>console.log(error));
     }
 
-    // addnew()
-    // {
-
-    //     var newnote=axios.post('http://127.0.0.1:5000/notes/add/', {
-    //                     "username": this.state.noteuser,
-    //                     "notedata": "Hello I am new",
-    //                     "email":this.state.email
-    //                     }).then(function(userID) {
-    //                         return userID;
-    //                     });
-        
-    //                     const printAddress = () => {
-    //                         newnote.then(async a => {
-    //                         console.log(a.data._id);
-    //                         console.log(this.state.email);
-
-    //                         axios.get('http://127.0.0.1:5000/notes/email/'+this.state.email).then(response =>{
-    //                             this.setState({notes:response.data}),this.showModal(a.data._id);}).catch((error)=>console.log(error));
-    //                         });
-                       
-    //                     }
-                        
-    //                     printAddress();
-
-    // }
-
-
-    // deleteNote(id)
-    // {
-    //     this.hideModal();
-    //     axios.delete('http://127.0.0.1:5000/notes/'+id).then(res=> console.log(res.data));
-    //     this.setState({
-    //         notes:this.state.notes.filter(el=>el._id !== id)
-    //     })
-    // }
 
     notesList()
     {
@@ -126,7 +70,6 @@ export default class NoteList extends Component
      }
 
 
-    //  <Redirect to='/login' />
 
 
 

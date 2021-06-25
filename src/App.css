@@ -547,3 +547,18 @@ body {
 .form-wrapper {
   padding: 50px 0px;
 }
+
+
+/* Inline #2 | http://localhost:3000/ */
+
+.glow-on-hover {
+  border: 3px solid white;
+}
+
+
+
+/* Inline #2 | http://localhost:3000/ */
+
+.add-button-wrapper {
+  z-index: 9999;
+}
