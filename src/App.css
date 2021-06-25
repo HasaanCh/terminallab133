@@ -569,3 +569,11 @@ body {
 .inner-header, .main-wrapper {
   position: relative;
 }
+
+
+/* Inline #2 | https://terminal133.herokuapp.com/ */
+
+.add-button-wrapper {
+  /* position: absolute; */
+  position: fixed;
+}
